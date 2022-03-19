@@ -1,0 +1,111 @@
+header {
+  position: fixed;
+  width: 100vw;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 2px 3px 5px rgb(204, 204, 204);
+  z-index: 100;
+
+  & > .header-container {
+    display: flex;
+
+    // logo setup
+    & > .logo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      cursor: pointer;
+
+      & > span {
+        font-size: 1.5rem;
+
+        &:last-of-type {
+          font-size: 1rem;
+        }
+      } 
+    }
+
+    // Hide menu button icon
+    & > .menu-burger {
+      display: none;
+    }
+
+    & > .input-container {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+
+      & > input {
+        width: 100%;
+        padding-left: 20px;
+        border-radius: 8px 0 0 8px;
+        border: 1px solid #ccc;
+        border-right: 0;
+        outline: 0;
+      }
+
+      & > button {
+        color: #ccc;
+        border: transparent;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-left: 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+    }
+
+    // avatar && user photo setup
+    & > .avatar {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+      img {
+      
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .language-select {
+      position: relative;
+      top: 0;
+      margin-left: 20px;
+
+      & > select {
+        outline: none;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  header {
+    & > .header-container {
+      margin: 0 40px;
+
+      & > .avatar {
+        display: none;
+      }
+
+      & > .logo {
+        display: none;
+      }
+
+      & > .menu-burger {
+        display: block;
+        width: 40px;
+        margin-right: 10px;
+      }
+    }   
+  }
+}

@@ -1,0 +1,61 @@
+.sidebar, .mobile-menu {
+  position: fixed;
+  margin: 80px 0;
+  padding: 0;
+  width: 200px;
+  height: 100%;
+  overflow: auto;
+  background-color: teal; 
+
+  & > a {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding: 16px;
+
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    transition: ease-in-out 0.8s;
+
+    &:hover {
+      background-color: #121212;
+      color: #FFF;
+    }
+
+    /* Icon*/
+    & > mat-icon {
+      margin-right: 0.2em;
+      font-size: 1.4em;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar, .mobile-menu{
+    position: relative;
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+    height: auto;    
+  }
+}
+
+@media screen and (max-width: 600px){
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    display: block;
+    z-index: 100;
+
+    & > a {
+      text-align: center;
+      float: none;
+    } 
+  } 
+}

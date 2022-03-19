@@ -1,0 +1,39 @@
+<!-- Desktop menu context -->
+<div class="sidebar">
+  <a [routerLink]="['/']">
+    <mat-icon aria-hidden="false" aria-label="home icon">dashboard</mat-icon>
+    {{ "header.menu.dashboard" | translate }}
+  </a>
+  <a href="#">
+    <mat-icon aria-hidden="false" aria-label="home icon">school</mat-icon>
+    {{ "header.menu.courses" | translate }}
+  </a>
+  <a href="#">
+    <mat-icon aria-hidden="false" aria-label="home icon">workspace_premium</mat-icon>
+    {{ "header.menu.certificates" | translate }}
+  </a>
+  <a href="#">
+    <mat-icon aria-hidden="false" aria-label="home icon">person</mat-icon>
+    {{ "header.menu.profile" | translate }}
+  </a>
+</div>
+
+<!-- Mobile Menu context  -->
+<div class="mobile-menu" *ngIf="isOpen">
+  <a [routerLink]="['/']">
+    <mat-icon aria-hidden="false" aria-label="home icon">dashboard</mat-icon>
+    {{ "header.menu.dashboard" | translate }}
+  </a>
+  <a href="#">
+    <mat-icon aria-hidden="false" aria-label="home icon">school</mat-icon>
+    {{ "header.menu.courses" | translate }}
+  </a>
+  <a href="#">
+    <mat-icon aria-hidden="false" aria-label="home icon">workspace_premium</mat-icon>
+    {{ "header.menu.certificates" | translate }}
+  </a>
+  <a href="#">
+    <mat-icon aria-hidden="false" aria-label="home icon">person</mat-icon>
+    {{ "header.menu.profile" | translate }}
+  </a>
+</div>

@@ -1,0 +1,13 @@
+{
+  "header": {
+    "title": "Course",
+    "subtitle": "Flix",
+    "search": "Buscar",
+    "menu": {
+      "dashboard": "Dashboard",
+      "courses": "Cursos",
+      "certificates": "Certificados",
+      "profile": "Perfil"
+    }
+  }
+}

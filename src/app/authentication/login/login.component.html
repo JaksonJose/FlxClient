@@ -1,0 +1,25 @@
+<div class="authentication">
+  <h2 class="text-center">Entrar</h2>
+
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <!-- Email or User input -->
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="floatingInput" name="email" [(ngModel)]="user.email" #email="ngModel" placeholder="name@example.com" required />
+      <label for="floatingInput">Email/User</label>
+      <span [hidden]="!email.errors?.['required']" *ngIf="email.errors && (email.dirty || email.touched)">Email or User Name Required.</span>
+    </div>
+
+    <!-- Password -->
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="floatingPassword" name="pswd" [(ngModel)]="user.password" #pswd="ngModel" placeholder="Password" required />
+      <label for="floatingPassword">Password</label>
+      <span [hidden]="!pswd.errors?.['required']" *ngIf="pswd.errors && (pswd.dirty || pswd.touched)">Password required.</span>
+    </div>
+
+    <!-- Submit Button and Link -->
+    <div class="d-flex justify-content-center flex-column">
+      <button type="submit" class="btn btn-primary">Login</button>
+      <a type="button" class="link text-center mt-3" [routerLink]="['/create-account']">Create an Account</a>
+    </div>
+  </form>
+</div>
