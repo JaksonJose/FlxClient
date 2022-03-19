@@ -1,3 +1,7 @@
-<div class="template">
-  <app-card [category]="category" *ngFor="let category of categories"></app-card>
+<div class="template" *ngIf="categories">
+  <app-card [item]="category" *ngFor="let category of categories"></app-card>
+</div>
+
+<div class="template" *ngIf="subCategories">
+  <app-card [item]="subCategories" *ngFor="let subCategories of subCategories"></app-card>
 </div>

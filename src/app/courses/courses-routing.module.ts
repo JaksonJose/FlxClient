@@ -5,5 +5,9 @@ export const CoursesRoutes: Routes = [
   {
     path: 'categories',
     component: TemplateComponent
+  },
+  {
+    path: 'category/:id',
+    component: TemplateComponent
   }
 ];

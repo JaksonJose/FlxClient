@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Category, CoursesService } from '../shared';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+
+import { Category, CoursesService, Subcategory } from '../shared';
 
 @Component({
   selector: 'app-template',
@@ -8,17 +11,41 @@ import { Category, CoursesService } from '../shared';
 })
 export class TemplateComponent implements OnInit {
 
-  categories: Array<any> = new Array();
+  subscription?: Subscription;
+  categories: Array<Category> = new Array();
+  subCategories: Array<Subcategory> = new Array();
+  isError: Boolean = false;
 
-  constructor(private service: CoursesService) { }
+  constructor(private service: CoursesService, private routeActive: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.FetchAllCourses();
+    this.subscription = this.routeActive.params.subscribe((params: any) => {
+
+      !params.id ? this.FetchAllCourses() : this.FetchCourseById(params.id);
+
+    });
   }
 
-  private FetchAllCourses(){
-    let response = this.service.GetAllCourses();  
-    response.subscribe((categories: Category[]) => this.categories = categories);
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 
+  private FetchAllCourses() {
+    let response: Observable<Category[]> = this.service.GetAllCategories();
+    response.subscribe((categories: Array<Category>) => {
+      this.categories = categories;
+    });
+  }
+
+  private FetchCourseById(id: string) {
+    let response = this.service.GetCategoryById(Number(id));
+    response.subscribe(
+      {
+        next: (response: any) => {
+          let [category] = response.responseData;
+          this.subCategories = category.subCategories;
+        },
+        error: () => this.isError = true
+      });
+  }
 }

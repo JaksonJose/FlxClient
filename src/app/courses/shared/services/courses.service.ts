@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Category } from '../Models/Category';
 
 
@@ -14,11 +14,20 @@ export class CoursesService {
   constructor(private httpClient: HttpClient) { 
   }
 
-  public GetAllCourses(): Observable<Category[]> {
-    return this.httpClient.get<Category[]>(this.baseUrl);
+  /**
+   * Get All Categories
+   * @returns response object
+   */
+  public GetAllCategories(): Observable<Category[]> {
+    return this.httpClient.get<Category[]>(this.baseUrl).pipe(catchError(throwError));
   }
 
-  public  GetCourseById(id: number): Observable<Category>  {
-    return this.httpClient.get<Category>(`${this.baseUrl}/${id}`);
+  /**
+   * Get category by id
+   * @param id 
+   * @returns reponse object
+   */
+  public  GetCategoryById(id: number): any {
+    return this.httpClient.get<any>(`${this.baseUrl}/${id}`).pipe(catchError(throwError));
   }
 }

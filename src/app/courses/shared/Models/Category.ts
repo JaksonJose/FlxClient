@@ -2,13 +2,13 @@ import { Subcategory } from "./Subcategory";
 import { Image } from "./Image";
 
 export class Category {
+  subCategories: any;
 
   constructor(
     id: number,
     name: string,
     description: string,
-    Image: Image,
-    subcategory: Array<Subcategory>
+    image: Image,
+    subCategories: Array<Subcategory>
     ) {}
-
 }

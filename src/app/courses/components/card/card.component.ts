@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MaxTextLenth } from 'src/app/utils/CommonMethods';
 
 @Component({
   selector: 'app-card',
@@ -8,15 +9,27 @@ import { Router } from '@angular/router';
 })
 export class CardComponent implements OnInit {
 
-  @Input('category')
-  category: any;
+  @Input('item')
+  item: any;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Redirect to build the subcategory page
+   * @param id 
+   */
   public redirectToLessons(id: number): void {
-    this.router.navigate([`/categories/${id}/`]);
+    this.router.navigate([`/category/${id}/`]);
   }
+
+  /**
+   * Limit the text length to display
+   * @param text text to cut
+   * @param length the max size would like to text to have
+   * @returns string text cut with the max length
+   */
+  public textSize = (text: string, maxLength: number) => MaxTextLenth(text, maxLength);
 }

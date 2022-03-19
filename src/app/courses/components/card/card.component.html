@@ -1,28 +1,28 @@
-<div class="card" *ngIf="category">
-  <div class="card-header">
-    <img [src]="category.image.imageUrl" alt="Foto capa do curso" />
-    <h2>{{ category.name }}</h2>
+<div class="flxCard" *ngIf="item">
+  <div class="flxCard-header">
+    <img [src]="item.image.imageUrl" alt="Foto capa do curso" />
+    <h2>{{ item.name }}</h2>
   </div>
   <div class="card-content">
-    <p *ngIf="category.duration">{{ "cards.duration" | translate }}: {{ category.duration }} hr</p>
-    <p>{{ category.description }}</p>
+    <p *ngIf="item.duration">{{ "cards.duration" | translate }}: {{ item.duration }} hr</p>
+    <p>{{ textSize(item.description, 150) }}</p>
   </div>
   <div class="button-container">
-    <Button (click)="redirectToLessons(category.id)"><span>{{ "cards.access" | translate }}</span></Button>
+    <Button (click)="redirectToLessons(item.id)"><span>{{ "cards.access" | translate }}</span></Button>
   </div>  
 </div>
 
 <!--Cards for mobile screen-->
-<div class="card-mobile" *ngIf="category">
+<div class="card-mobile" *ngIf="item">
   <div class="card-header">
-    <img [src]="category.image.imageUrl" alt="Foto capa do curso" />
+    <img [src]="item.image.imageUrl" alt="Foto capa do curso" />
   </div>
   <div class="card-content">
-    <h2>{{ category.name }}</h2>
-    <p *ngIf="category.duration">{{ "cards.duration" | translate }}: {{ category.duration }} hr</p>
-    <p>{{ category.description }}</p>
+    <h2>{{ item.name }}</h2>
+    <p *ngIf="item.duration">{{ "cards.duration" | translate }}: {{ item.duration }} hr</p>
+    <p>{{ item.description }}</p>
   </div>
   <div class="button-container">
-    <Button (click)="redirectToLessons(category.id)"></Button>
+    <Button (click)="redirectToLessons(item.id)"></Button>
   </div>  
 </div>

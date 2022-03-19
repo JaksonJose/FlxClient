@@ -1,8 +1,13 @@
+import { Image } from "./Image";
+
 export class Subcategory {
+  description: any;
   constructor(
     id: number,
-    courseId: number,
+    categoryId: number,
+    imageId: number,
     name: string,
-    description: string
+    description: string,
+    image: Image
   ) {}
 }
