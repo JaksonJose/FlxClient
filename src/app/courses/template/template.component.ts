@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category, CoursesService } from '../shared';
 
 @Component({
   selector: 'app-template',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateComponent implements OnInit {
 
-  constructor() { }
+  categories: Array<any> = new Array();
+
+  constructor(private service: CoursesService) { }
 
   ngOnInit(): void {
+    this.FetchAllCourses();
+  }
+
+  private FetchAllCourses(){
+    let response = this.service.GetAllCourses();  
+    response.subscribe((categories: Category[]) => this.categories = categories);
   }
 
 }

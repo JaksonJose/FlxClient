@@ -1,0 +1,125 @@
+.card {
+  width: 250px;
+  margin: 15px;
+  margin-bottom: 40px;
+  height: 350px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  & > .card-header {
+    padding: 5px;
+
+    & > img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    & > h2{
+      text-align: center;
+      color: #181C2e;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+  } 
+  
+  & > .card-content {
+    padding: 2px 16px;
+    height: 120px;       
+  
+    p{
+      margin-bottom: 10px;
+    }
+  }
+  
+  button {
+    height: 50px;
+    border-radius: 8px;
+    font-weight: 500;
+    background: teal;
+    color: white;
+    padding: 0 32px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.card-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px)  {
+  .card {
+    display: none;
+  }
+
+  .card-mobile {
+    display: flex;
+    width: 100vw;
+    height: 140px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    & > .card-header {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & > img {
+        width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    & > .card-content {
+      flex: 2;
+      padding-left: 10px;
+
+      & > h2 {
+        text-align: center;
+        color: #181C2e;
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 2px;
+      }  
+      
+      p {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+      }
+    }
+
+    & > .button-container {
+
+      button {
+        font-weight: 500;
+        background: teal;
+        color: white;
+        width: 30px;
+        height: 100%;
+        border-radius: 0 8px 8px 0;
+        cursor: pointer;
+
+        &::after {
+          content: '>';
+        }      
+      }
+    }
+  }  
+}

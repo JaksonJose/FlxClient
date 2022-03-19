@@ -6,6 +6,13 @@ main {
 
 @media screen and (max-width: 900px) {
   main {
+    padding-top: 150px;
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding-top: 100px;
   }
 }

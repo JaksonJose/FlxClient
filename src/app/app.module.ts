@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent, SignupComponent } from './authentication/';
-import { HomeComponent } from './layout/';
-import { HeaderComponent } from './layout/components/header/header.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent, SignupComponent } from './authentication';
+import { CoursesModule } from './courses';
+import { HomeComponent,  HeaderComponent, SidebarComponent } from './layout';
 import { MaterialModule } from './material';
-import { SidebarComponent } from './layout/components/sidebar/sidebar.component';
-import { FormsModule } from '@angular/forms';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -30,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoursesModule,
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
