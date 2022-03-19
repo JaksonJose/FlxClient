@@ -1,5 +1,16 @@
 # FlxClient
 
+
+### What I've been learning
+- Authenticating and Routers
+- Using Guard
+- Authentication using JWT
+- Dividing the application in modules
+- Using directives and template variables
+- Working with forms
+- Working with bootstrap and material library
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
 
 ## Development server
