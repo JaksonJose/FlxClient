@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AccountService } from '../shared';
-import { User } from '../shared/Models';
+import { Auth } from '../shared/Models';
 
 @Component({
   selector: 'app-login',
@@ -13,17 +14,18 @@ export class LoginComponent implements OnInit {
   @ViewChild('loginForm', { static: true }) 
   loginForm!: NgForm;
 
-  user: User = new User();
+  auth: Auth = new Auth();
 
-  constructor(private service: AccountService ) { }
+  constructor(private service: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  public onSubmit() {
+  public async onSubmit() {
     if(this.loginForm.valid){
-      this.user.role = "admin";
-      this.service.AuthenticateUser(this.user);
+      await this.service.AuthenticateUser(this.auth);
+
+      this.router.navigate(['/categories']);
     }
   }
 
