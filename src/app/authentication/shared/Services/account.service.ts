@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthGuard } from '../guard/auth.guard';
 import { Auth, UserResponse } from '../Models';
 
 @Injectable({
@@ -20,5 +19,11 @@ export class AccountService {
       const user = JSON.stringify(response.responseData);
       localStorage.setItem('user', user);
     });
+  }
+
+  public getAthtorizationToken(): string | null {
+    const token = localStorage.getItem('token');
+    
+    return token;
   }
 }

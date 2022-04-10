@@ -8,7 +8,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent, SignupComponent } from './authentication';
+
+import { httpInterceptorProviders, LoginComponent, SignupComponent } from './authentication';
 import { CoursesModule } from './courses';
 import { HomeComponent,  HeaderComponent, SidebarComponent } from './layout';
 import { MaterialModule } from './material';
@@ -42,7 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
