@@ -3,7 +3,7 @@
 
 ### What I've been learning
 - Authenticating and Routers
-- Using Guard
+- Using Guard and http request interceptions
 - Authentication using JWT
 - Dividing the application in modules
 - Using directives and template variables
