@@ -7,13 +7,11 @@ import { AccountService } from '../Services/account.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router){ }
+  constructor(private router: Router, private service: AccountService){ }
 
   public canActivate(): boolean {
-    const token = localStorage.getItem('token');
-    
-    if (token) return true;
-    
+    if (this.service.isUserLoggedIn()) return true;
+      
     this.router.navigate(['/login']);
     return false;
   }  
