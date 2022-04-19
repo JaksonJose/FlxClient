@@ -2,8 +2,10 @@
   <div class="header-container">
     <!-- The title and website logo -->
     <div class="logo">
-      <span>{{ "header.title" | translate }}</span>      
-      <span>{{ "header.subtitle" | translate }}</span>
+      <div>
+        <span>{{ "header.title" | translate }}</span>      
+        <span>{{ "header.subtitle" | translate }}</span>
+      </div>   
     </div>
   
       <!-- Burger Menu for mobile -->
@@ -19,11 +21,8 @@
     <div class="avatar">
       <img src="/assets/images/user-avatar.svg" alt="" />
   
-      <div class="language-select">
-        <select>
-          <option value="en">English</option>
-          <option value="pt">Portuguese</option>
-        </select>
+      <div class="userName">
+        <span>{{ user.firstName }}</span>
       </div>
     </div>
   </div>

@@ -14,16 +14,23 @@ header {
     & > .logo {
       flex: 1;
       display: flex;
-      flex-direction: column;
-      text-align: center;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
 
-      & > span {
-        font-size: 1.5rem;
+      & > div {
+        display: flex;
+        flex-direction: column;
 
-        &:last-of-type {
-          font-size: 1rem;
-        }
+        & > span {
+          font-size: 1.5rem;
+  
+          &:last-of-type {
+            display: flex;
+            font-size: 1rem;
+            justify-content: flex-end;
+          }
+        } 
       } 
     }
 
@@ -71,18 +78,10 @@ header {
       }
     }
 
-    .language-select {
-      position: relative;
-      top: 0;
-      margin-left: 20px;
-
-      & > select {
-        outline: none;
-        width: 100%;
-        height: 100%;
-        border: 1px solid #CCC;
-        border-radius: 5px;
-      }
+    .userName {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
     }
   }
 }

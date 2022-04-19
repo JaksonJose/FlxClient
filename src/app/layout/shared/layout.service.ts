@@ -12,5 +12,13 @@ export class LayoutService {
   public ShowAndHideMenu(isOpen: boolean) {
     this.isOpenEmitter.emit(isOpen);
   }
+
+  public fetchUser() {
+    const user = localStorage.getItem('user');
+    
+    const [userConverted] = JSON.parse(user!);
+
+    return userConverted;
+  }
     
 }

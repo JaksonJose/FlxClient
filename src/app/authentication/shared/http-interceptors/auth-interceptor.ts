@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor {
    * @param next 
    * @returns Observable<HttpEvent>
    */
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>  {
     
     const token = this.accountService.getAthtorizationToken();
 
@@ -38,6 +38,6 @@ export class AuthInterceptor implements HttpInterceptor {
       console.error(`Error code: ${error.status}, Error: ${JSON.stringify(error.error)}`);
     }
 
-    return throwError('Error, try it again');
+    return throwError(() => new Error('Error, try it again'));
   }
 }

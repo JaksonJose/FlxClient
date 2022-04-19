@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/authentication/shared/Models';
+import { LayoutService } from '../../shared/layout.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User();
 
-  ngOnInit(): void {
+  constructor(private service: LayoutService) {   
   }
 
+  ngOnInit(): void {
+    this.fetchUser()
+  }
+  
+  private fetchUser = () => this.user = this.service.fetchUser();
 }
