@@ -91,14 +91,18 @@
 
     & > .card-content {
       flex: 2;
-      padding-left: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px;
+      overflow: hidden;
 
-      & > h2 {
+      & > div:first-of-type h2 {
         text-align: center;
         color: #181C2e;
         font-size: 1em;
         font-weight: bold;
-        margin-bottom: 2px;
+        margin-bottom: 1px;
       }  
       
       p {
@@ -107,19 +111,18 @@
       }
 
       & > .button-container {
+        display: flex;
+        justify-content: flex-end;
 
-        button {
+        & > button {
           font-weight: 500;
           background: teal;
           color: white;
-          /* width: 100px; */
+          width: 100px;
           height: 100%;
-          border-radius: 0 8px 8px 0;
-          cursor: pointer;
-  
-          &::after {
-            content: '>';
-          }      
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;     
         }
       }
     }

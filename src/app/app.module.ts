@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { httpInterceptorProviders, LoginComponent, SignupComponent } from './authentication';
 import { CoursesModule } from './courses';
-import { HomeComponent,  HeaderComponent, SidebarComponent } from './layout';
+import { HomeComponent,  HeaderComponent, NavbarComponent } from './layout';
 import { MaterialModule } from './material';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,7 +25,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SignupComponent,
     HomeComponent,
     HeaderComponent,
-    SidebarComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

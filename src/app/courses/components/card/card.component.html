@@ -17,13 +17,14 @@
   <div class="flxcard-header">
     <img [src]="item.image.imageUrl" alt="Foto capa do curso"/>
   </div>
-
   <div class="card-content">
-    <h2>{{ item.name }}</h2>
-    <p *ngIf="item.duration">{{ "cards.duration" | translate }}: {{ item.duration }} hr</p>
-    <p>{{ item.description }}</p>
-    <div class="button-container" style="border: 1px solid red" >
+    <div>
+      <h2>{{ item.name }}</h2>
+      <p *ngIf="item.duration">{{ "cards.duration" | translate }}: {{ item.duration }} hr</p>
+      <p>{{ textSize(item.description, 120) }}</p>
+    </div>
+    <div class="button-container">
       <Button (click)="redirectToLessons(item.id)">{{ "cards.access" | translate }}</Button>
-    </div>  
+    </div>
   </div>
 </div>

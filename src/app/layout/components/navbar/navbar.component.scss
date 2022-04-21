@@ -48,11 +48,12 @@
   .sidebar {
     display: none;
   }
-
+  
   .mobile-menu {
     position: absolute;
     display: block;
     z-index: 100;
+    top: -10px;
 
     & > a {
       text-align: center;

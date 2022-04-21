@@ -26,20 +26,33 @@ export class AccountService {
     });
   }
 
+  /**
+   * 
+   * @returns Get the Token stored in local storage
+   */
   public getAthtorizationToken(): string | null {
     const token = localStorage.getItem('token');
     
     return token;
   }
 
+  /**
+  * Verify if user is authenticated
+  * @returns boolean
+  */
   public isUserLoggedIn(): boolean {
     const token = this.getAthtorizationToken();
-
+  
     if (!token || this.isTokenExpired(token)) return false;
-
+  
     return true;
   }
-
+  
+  /**
+   * Verify is token is valid and not expirated
+   * @param token 
+   * @returns Date
+   */
   private getTokenExpirationDate(token: string): Date | null {
     try {
       const decoded: any = jwtDecode<JwtPayload>(token);
@@ -54,9 +67,13 @@ export class AccountService {
       console.error(`getTokenExpirationDate method Error: ${ex}`);
       return null;
     }
-
   }
 
+  /**
+   * Verify if token is valid
+   * @param token 
+   * @returns boolean
+   */
   private isTokenExpired(token?: string): boolean {
     if (!token) return true;
 
